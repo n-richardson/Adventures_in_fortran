@@ -4,14 +4,19 @@
 
 program main
 	implicit none
-	integer, parameter :: n = 10
-	real, dimension(1:n) :: x, y 
+	real, parameter :: pi = 4*atan(1.0)
+	integer, parameter :: n = 100
+	real, dimension(1:n) :: x, y
+	real :: a = 0.0, b = 2*pi
+	real :: increment 
 	integer :: i
 	
 ! Loop to fill the x array
+	increment = (b - a)/(real(n) - 1)
 
-	do i = 1,n
-	  x(i) = i
+	x(1) = 0.0
+	do i = 2,n
+	  x(i) = x(i-1) + increment
 	end do
 
 ! y values are computed from the sin function
